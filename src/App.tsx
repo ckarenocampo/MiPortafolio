@@ -1,9 +1,9 @@
 import { ArrowDown, ArrowUpRight, Download } from 'lucide-react'
 import portraitImg from './assets/karen-portrait.webp'
 import cvUrl from './utils/Karen_Ocampo_CV.pdf'
+import { TechChip } from './components/TechLogo'
+import { interests, learning, skillGroups } from './data/skills'
 import './App.css'
-
-const skills = ['React', 'TypeScript', 'JavaScript', 'HTML & CSS', 'Vite', 'Git']
 
 const projects = [
   {
@@ -59,9 +59,10 @@ function App() {
             Creo experiencias
             <br className="desktop-break" /> para la web.
           </h1>
+          <p className="hero-role">Systems Engineer · Full-Stack Developer</p>
           <p className="hero-description">
-            Desarrolladora de software enfocada en crear sitios y aplicaciones
-            atractivos, accesibles y fáciles de usar.
+            Diseño, desarrollo e integro aplicaciones web y móviles eficientes,
+            con buenas experiencias para quienes las usan.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#proyectos">
@@ -105,13 +106,20 @@ function App() {
         </div>
         <div className="about-copy">
           <p>
-            Me apasiona construir productos digitales que se sientan tan bien
-            como funcionan. Disfruto cada etapa: entender el problema, cuidar
-            los detalles y convertir ideas en interfaces útiles.
+            Soy Ingeniera en Sistemas Computacionales y Desarrolladora
+            Full-Stack con experiencia en el diseño, desarrollo e integración de
+            aplicaciones web y móviles.
           </p>
           <p>
-            Siempre estoy aprendiendo y buscando nuevos retos que me permitan
-            crecer como desarrolladora y aportar a proyectos con impacto.
+            Trabajo con tecnologías como React, React Native, Node.js, PHP y
+            .NET, además de gestión de bases de datos y automatización de
+            procesos mediante n8n.
+          </p>
+          <p>
+            Me interesa crear soluciones tecnológicas eficientes, optimizar
+            procesos y desarrollar aplicaciones que ofrezcan buenas
+            experiencias. También disfruto colaborar con equipos, compartir
+            conocimientos y explicar soluciones técnicas.
           </p>
           <a className="text-link" href="mailto:cindykarenocampo@gmail.com">
             Contáctame <ArrowUpRight aria-hidden="true" />
@@ -120,16 +128,43 @@ function App() {
       </section>
 
       <section className="skills-section" id="habilidades">
-        <div className="page-width skills-inner">
-          <div>
+        <div className="page-width">
+          <div className="skills-heading">
             <p className="eyebrow">Habilidades</p>
-            <h2>Habilidades para<br />crear en la web.</h2>
+            <h2>Tecnologías y<br />herramientas.</h2>
           </div>
-          <ul className="skill-list">
-            {skills.map((skill) => (
-              <li key={skill}>{skill}</li>
+          <div className="skill-groups">
+            {skillGroups.map((group) => (
+              <div className="skill-group" key={group.title}>
+                <h3>{group.title}</h3>
+                <ul className="tech-list">
+                  {group.items.map((tech) => <TechChip key={tech.name} tech={tech} />)}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
+
+          <div className="growth-grid">
+            <div className="growth-card">
+              <h3>Actualmente aprendiendo</h3>
+              {learning.map((item) => (
+                <div className="learning-item" key={item.techs[0].name}>
+                  <ul className="tech-list">
+                    {item.techs.map((tech) => <TechChip key={tech.name} tech={tech} />)}
+                  </ul>
+                  <ul className="learning-points">
+                    {item.points.map((point) => <li key={point}>{point}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="growth-card">
+              <h3>Otras áreas de interés</h3>
+              <ul className="interest-list">
+                {interests.map((interest) => <li key={interest}>{interest}</li>)}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
