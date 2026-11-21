@@ -3,8 +3,6 @@ import {
   siCss,
   siDart,
   siDotnet,
-  siExpress,
-  siFigma,
   siFlutter,
   siGit,
   siGithub,
@@ -18,7 +16,6 @@ import {
   siPhp,
   siPostgresql,
   siPostman,
-  siPython,
   siReact,
   siTypescript,
 } from 'simple-icons'
