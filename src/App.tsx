@@ -1,35 +1,56 @@
 import { ArrowDown, ArrowUpRight, Download } from 'lucide-react'
 import portraitImg from './assets/karen-portrait.webp'
 import cvUrl from './utils/Karen_Ocampo_CV.pdf'
+import { ImageSlider } from './components/ImageSlider'
 import { TechChip } from './components/TechLogo'
+import { getProjectImages } from './data/projectImages'
 import { interests, learning, skillGroups } from './data/skills'
 import './App.css'
+import '@fontsource-variable/plus-jakarta-sans';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
 
 const projects = [
   {
     number: '01',
-    category: 'Desarrollo web',
-    title: 'Tu próximo proyecto',
+    category: 'Automatización',
+    title: 'Consumo de Correos y Extracción Automatizada de Datos en Documentos',
     description:
-      'Una idea convertida en una experiencia digital clara, rápida y fácil de usar.',
-    tags: ['React', 'Diseño responsive'],
+      'El flujo monitorea una bandeja de correo de mensajes entrantes, identifica archivos adjuntos y extrae datos estructurados para enviarlos a una hoja de calculo.Elimina el copiado manual de datos desde correos y archivos, acelera el procesamiento y estandariza la información.',
+    tags: ['n8n','Automatización']
   },
-  {
+   {
     number: '02',
-    category: 'Diseño de interfaces',
-    title: 'Experiencias centradas en las personas',
+    category: 'Automatización',
+    title: 'Sincronización y Actualización de Base de Datos vía Endpoint',
     description:
-      'Interfaces intuitivas que combinan una estética cuidada con funcionalidad.',
-    tags: ['UI', 'Accesibilidad'],
+      'Recepción de datos mediante endpoint con validación de estructura y campos. Actualizando o insertando los registros evitando duplicados.Evita actualizaciones manuales, mantiene la información sincronizada entre servicios y reduce errores de captura.',
+    tags: ['n8n','Automatización']
   },
   {
     number: '03',
-    category: 'En colaboración',
-    title: 'Hagámoslo realidad',
+    category: 'Dessarrollo web',
+    title: 'Reconversión de sistema legacy a Arquitectura Moderna',
     description:
-      'Estoy abierta a colaborar en proyectos interesantes y seguir aprendiendo.',
-    tags: ['Ideas', 'Colaboración'],
+      'Migración de sistema heredado en .NET a una arquitectura moderna con React y Node.js, Personalización de componentes de diseño y creación de componentes propios reutilizables. Desarrollo de formularios y tablas configurables por parámetros para evitar duplicar código',
+    tags: ['React js', 'Node.js','APIs REST','Migracion Legacy (.NET)'],
   },
+  {
+    number: '04',
+    category: 'Desarrollo móvil',
+    title: 'Módulo Móvil Offline para Gestión de Registros',
+    description:
+      'Descarga de datos maestros para autocompletar selectores, junto con captura de fecha y campos obligatorios en formulario. Almacenamiento en base local con soporte para trabajo offline y edición de registros antes de enviarlos.Envío posterior de registros pendientes al servidor al restablecerse la conexión, manteniendo trazabilidad del estado.',
+    tags: ['React Native','SQLite','APIs REST']
+  },
+  {
+    numer: '05',
+    category: 'Desarrollo móvil',
+    title: 'App Móvil de Gestión Financiera y Operativa (Carwash)',
+    description:
+      'Diseño de interfaz, estructura de navegación, lógica de negocio y persistencia de datos de principio a fin. Desarrollo integral de una aplicación móvil en React Native para administrar servicios realizados, ingresos, egresos y rentabilidad diaria de un negocio de lavado de autos.Panel de reportes con métricas filtradas por hoy, semana y mes para visualizar ingresos, egresos y utilidad neta al instante.',
+    tags: ['React Native','SQLite','APIs REST']
+  }
 ]
 
 function App() {
@@ -106,7 +127,7 @@ function App() {
         </div>
         <div className="about-copy">
           <p>
-            Soy Ingeniera en Sistemas Computacionales y Desarrolladora
+            Soy Ingeniera en Sistemas y Desarrolladora
             Full-Stack con experiencia en el diseño, desarrollo e integración de
             aplicaciones web y móviles.
           </p>
@@ -173,19 +194,20 @@ function App() {
           <div>
             <p className="eyebrow">Lo que puedo hacer</p>
             <h2>Proyectos e ideas</h2>
+            <p className="project-description">
+              Cada proyecto comienza con una buena pregunta y termina con algo
+              que hace la vida un poco más fácil.
+            </p>
           </div>
-          <p>
-            Cada proyecto comienza con una buena pregunta y termina con algo
-            que hace la vida un poco más fácil.
-          </p>
         </div>
         <div className="project-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.number}>
-              <div className="project-card-top">
+              {/* <div className="project-card-top">
                 <span className="project-number">{project.number}</span>
                 <ArrowUpRight className="project-arrow" aria-hidden="true" />
-              </div>
+              </div> */}
+              <ImageSlider images={getProjectImages(project.number)} title={project.title} />
               <p className="project-category">{project.category}</p>
               <h3>{project.title}</h3>
               <p className="project-description">{project.description}</p>
@@ -211,7 +233,7 @@ function App() {
               <span className="brand-mark">K</span>
               <span>Karen Ocampo</span>
             </a>
-            <p>Diseñado y desarrollado con intención.</p>
+            <p>Diseñado y desarrollado</p>
             <span>© {new Date().getFullYear()} Karen Ocampo</span>
           </div>
         </div>
