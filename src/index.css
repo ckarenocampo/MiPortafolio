@@ -1,6 +1,7 @@
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #e9e5f2;
+  /* font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; */
+  /* font-family: 'Inter Variable', sans-serif; */
+  font-family: 'Space Grotesk', sans-serif;  
   background: #100e16;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -55,4 +56,12 @@ a:focus-visible {
 ::selection {
   color: #fff;
   background: #7045c4;
+}
+
+/* h1, h2, h3 {
+  font-family: 'Plus Jakarta Sans Variable', sans-serif;
+} */
+ h1, h2, h3, .font-heading {
+  font-family: 'Space Grotesk Variable', sans-serif;
+  letter-spacing: -0.02em; /* Un ajuste sutil que hace que se vea más compacta en títulos grandes */
 }
