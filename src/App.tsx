@@ -207,7 +207,7 @@ function App() {
                 <span className="project-number">{project.number}</span>
                 <ArrowUpRight className="project-arrow" aria-hidden="true" />
               </div> */}
-              <ImageSlider images={getProjectImages(project.number)} title={project.title} />
+              <ImageSlider images={getProjectImages(String(project.number))} title={project.title} />
               <p className="project-category">{project.category}</p>
               <h3>{project.title}</h3>
               <p className="project-description">{project.description}</p>
