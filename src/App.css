@@ -623,6 +623,55 @@ p {
   user-select: none;
 }
 
+/* Mobile screenshots: up to 3 phone frames side by side over a soft
+   gradient. The slide is a size container so each phone can be sized to
+   fit both its width share and the slide height without cropping. */
+.slider-slide.is-phones {
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+  min-width: 0;
+  overflow: hidden;
+  cursor: default;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(182, 154, 255, 0.26), rgba(182, 154, 255, 0) 62%),
+    linear-gradient(160deg, #241a3d 0%, #120f1c 100%);
+}
+
+.phone-frame {
+  --frame: 4px;
+  flex: none;
+  width: min(29cqw, (84cqh - 2 * var(--frame)) * var(--ratio) + 2 * var(--frame));
+  padding: var(--frame);
+  border: 0;
+  border-radius: clamp(10px, 4.5cqw, 20px);
+  background: #07060b;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 16px 32px -10px rgba(0, 0, 0, 0.75),
+    0 0 36px rgba(133, 87, 232, 0.22);
+  cursor: zoom-in;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.phone-frame:hover,
+.phone-frame:focus-visible {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px var(--accent-border),
+    0 20px 36px -10px rgba(0, 0, 0, 0.8),
+    0 0 44px rgba(133, 87, 232, 0.4);
+}
+
+.slider-slide.is-phones .phone-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: calc(clamp(10px, 4.5cqw, 20px) - var(--frame));
+}
+
 .slider-arrow {
   position: absolute;
   top: 50%;
@@ -664,9 +713,10 @@ p {
   background: var(--accent);
 }
 
+/* Touch screens swipe; the arrows would only cover the screenshots. */
 @media (hover: none) {
   .slider-arrow {
-    opacity: 1;
+    display: none;
   }
 }
 
