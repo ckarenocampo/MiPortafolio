@@ -44,12 +44,20 @@ const projects = [
     tags: ['React Native','SQLite','APIs REST']
   },
   {
-    numer: '05',
+    number: '05',
     category: 'Desarrollo móvil',
     title: 'App Móvil de Gestión Financiera y Operativa (Carwash)',
     description:
       'Diseño de interfaz, estructura de navegación, lógica de negocio y persistencia de datos de principio a fin. Desarrollo integral de una aplicación móvil en React Native para administrar servicios realizados, ingresos, egresos y rentabilidad diaria de un negocio de lavado de autos.Panel de reportes con métricas filtradas por hoy, semana y mes para visualizar ingresos, egresos y utilidad neta al instante.',
     tags: ['React Native','SQLite','APIs REST']
+  },
+  {
+    number: '06',
+    category: 'Desarrollo web',
+    title: 'Creación de sistema de reservas',
+    description:
+      'Diseño de interfaz, estructura de navegación, lógica de negocio y persistencia de datos de principio a fin. Desarrollo integral de una aplicación móvil en React Native para administrar servicios realizados, ingresos, egresos y rentabilidad diaria de un negocio de lavado de autos.Panel de reportes con métricas filtradas por hoy, semana y mes para visualizar ingresos, egresos y utilidad neta al instante.',
+    tags: ['React JS']
   }
 ]
 
